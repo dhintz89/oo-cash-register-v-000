@@ -2,7 +2,7 @@ class CashRegister
   attr_accessor :total, :items
   attr_reader :employee_discount, :old_total
   
-  def initialize(employee_discount)
+  def initialize(employee_discount=0)
     @total = 0
     @employee_discount = employee_discount
     @items = []
@@ -22,8 +22,7 @@ class CashRegister
     if @employee_discount == 0 || nil
       return "There is no discount to apply."
     else
-      self.total *= @employee_discount
-    return "After the discount, the total comes to $#{self.total - (self.total * (@employee_discount / 100))}."
+      return "After the discount, the total comes to $#{self.total - (self.total * (@employee_discount / 100))}."
     end
   end
   
@@ -32,7 +31,7 @@ class CashRegister
   end
   
   def void_last_transaction
-    self.total - @old_total
+    self.total = @old_total
   end
   
 end
