@@ -23,8 +23,8 @@ class CashRegister
       return "There is no discount to apply."
     else
       self.total *= @employee_discount
-    return "After the discount, the total comes to $#{self.total}."
-    
+    return "After the discount, the total comes to $#{self.total - (self.total * (@employee_discount / 100))}."
+    end
   end
   
   def items
