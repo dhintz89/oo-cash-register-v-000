@@ -1,6 +1,6 @@
 class CashRegister
   attr_accessor :total :items
-  attr_reader :employee_dicount :old_total
+  attr_reader :employee_discount :old_total
   
   def initialize(employee_discount)
     @total = 0
@@ -19,8 +19,12 @@ class CashRegister
   end
   
   def apply_discount
-    self.total *= @employee_discount
+    if @employee_discount == 0 || nil
+      return "There is no discount to apply."
+    else
+      self.total *= @employee_discount
     return "After the discount, the total comes to $#{self.total}."
+    
   end
   
   def items
