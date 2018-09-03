@@ -13,10 +13,10 @@ class CashRegister
   end
   
   def add_item(title, price, quantity=1)
+    @items << title
     @old_total = self.total
     self.total += (price * quantity)
-    @items << title
-  end
+    end
   
   def apply_discount
     if @discount == 0 || nil
