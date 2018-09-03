@@ -20,7 +20,7 @@ class CashRegister
   
   def apply_discount
     self.total *= @employee_discount
-    return "Success, your new total is #{self.total}"
+    return "After the discount, the total comes to $#{self.total}."
   end
   
   def items
